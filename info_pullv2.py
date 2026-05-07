@@ -218,7 +218,7 @@ if __name__ == "__main__":
     # 2. Multithread the heavy fundamental pulls
     # WARNING: Keep max_workers between 5 and 10. If you go too high (like 20+), 
     # Yahoo Finance will flag you as a DDoS attack and temporarily IP ban you (HTTP 429 Error).
-    with concurrent.futures.ThreadPoolExecutor(max_workers=15) as executor:
+    with concurrent.futures.ThreadPoolExecutor(max_workers=8) as executor:
         # Submit all tasks to the executor
         future_to_symbol = {executor.submit(process_single_stock, symbol): symbol for symbol in target_tickers}
         
